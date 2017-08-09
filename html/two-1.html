@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>我的健康之路</title>
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+<div class="title">
+    <h1> <span onclick="window.history.go(-1);"><img src="../images/left_white.png" alt=""></span> 我的健康之路 <a href="javascript:test();">完成</a></h1>
+</div>
+  <div class="content">
+      <div class="major_surgery major">
+          <p class="blue">既往重大手术史</p>
+          <ol class="list">
+              <li >
+                  <img src="../images/jian.png" alt="删除">
+                  <div class="date">
+                      <label for="date" >日期</label >
+                      <input  id="date" name="operationDates"  type="date"   placeholder="请选择日期">
+                  </div>
+                  <div class="ss">
+                      <label for="surgery">手术</label>
+                      <input type="text" id="surgery"  placeholder="您做过的手术名称"></div>
+              </li>
+
+
+           </ol>
+          <p class="add"><img src="../images/jia.png" alt=""></p>
+      </div>
+      <div class="chronic_illness">
+          <p class="blue">慢性病史</p>
+          <div class="wrap">
+              <textarea ></textarea>
+          </div>
+      </div>
+      <div class="family_history">
+          <p class="blue">家族史</p>
+          <div class="wrap">
+              <textarea ></textarea>
+          </div>
+      </div>
+      <div class="allergy">
+          <p class="blue">过敏史</p>
+          <div class="wrap">
+              <textarea ></textarea>
+          </div>
+      </div>
+      <div class="btn">
+          <a href="three.html">下一步</a>
+      </div>
+      <div class="bottom"></div>
+  </div>
+<script src="../js/jquery.js"></script>
+<script>
+    $(function () {
+        $(".add").click(function () {
+            var str="";
+            str+='  <li >\
+            <img src="../images/jian.png" alt="删除">\
+                <div class="date">\
+                <label  >日期</label >\
+                <input   type="date"   placeholder="请选择日期">\
+                </div>\
+                <div class="ss">\
+                <label >手术</label>\
+                <input  placeholder="您做过的手术名称"></div>\
+                </li>\
+            '
+            $(".list").append(str);
+
+        })
+        $(".list").click(function (e) {
+          if(e.target.tagName=="IMG"){
+              $(e.target).parent("li").remove();
+          }
+        })
+    })
+
+    function test(){
+        var flag = true;
+        $("input[name='operationDates']").each(function(){
+            var val = $(this).val();
+            if(val){
+                if(!(/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(val))){
+                    alert("日期填写有误，请重新填写\n格式：yyyy-mm-dd");
+                    $(this).val("");
+                    $(this).focus();
+                    flag = false;
+                }
+            }
+        });
+    }
+
+
+</script>
+</body>
+</html>
