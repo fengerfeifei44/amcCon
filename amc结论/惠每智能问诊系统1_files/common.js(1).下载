@@ -1,0 +1,48 @@
+﻿$(document).ready(function () {
+    $('a[id="terms_of_use"]').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetTermsOfUse",
+            success: function (data) {
+                activatePopup(data);
+            }
+        });
+    });
+    $('a[id="privacy_policy"]').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetPrivacyPolicy",
+            success: function (data) {
+                activatePopup(data);
+            }
+        });
+    });
+    $('a[id="faq"]').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: "/Home/GetFAQText",
+            success: function (data) {
+                activatePopup(data);
+            }
+        });
+    });
+    registerClickOnClose();
+});
+function registerClickOnClose() {
+    /* reset to values before legal popup was activated */
+    $("#popup .close").click(function () {
+        $("#popupwrapper").removeClass("on");
+        $("#popup").css('width', '300px');
+    });
+}
+function activatePopup(data) {
+    $("#popup").html(data);
+    $("#popup").css('width', '90%');
+    $("#popup").append('<a class="close">close</a>');
+    $("#popupwrapper").addClass("on");
+    var oScroll = $('#popup_scrollbar');
+    if (oScroll.length > 0) {
+        oScroll.tinyscrollbar();
+    }
+    registerClickOnClose()
+}

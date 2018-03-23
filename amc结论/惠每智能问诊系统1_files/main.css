@@ -1,0 +1,608 @@
+@font-face {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  src: url('../fonts/swz721t-webfont.eot');
+  src: url('../fonts/swz721t-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/swz721t-webfont.woff') format('woff'), url('../fonts/swz721t-webfont.ttf') format('truetype'), url('../fonts/swz721t-webfont.svg#Swis721ThBTThin') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  src: url('../fonts/swz721l-webfont.eot');
+  src: url('../fonts/swz721l-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/swz721l-webfont.woff') format('woff'), url('../fonts/swz721l-webfont.ttf') format('truetype'), url('../fonts/swz721l-webfont.svg#Swis721LtBTLight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  src: url('../fonts/swz721n-webfont.eot');
+  src: url('../fonts/swz721n-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/swz721n-webfont.woff') format('woff'), url('../fonts/swz721n-webfont.ttf') format('truetype'), url('../fonts/swz721n-webfont.svg#Swis721BTRoman') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  src: url('../fonts/swz721b-webfont.eot');
+  src: url('../fonts/swz721b-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/swz721b-webfont.woff') format('woff'), url('../fonts/swz721b-webfont.ttf') format('truetype'), url('../fonts/swz721b-webfont.svg#Swis721BTRomanBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.bold {
+  font-weight: bold;
+}
+/* Primary Button - Blue */
+/* Active Link*/
+/*  Default Text - Grey/Black */
+/* Sub Header - Grey  */
+/* Header - Dark Orange */
+/* Header - Orange */
+/* Login Input */
+/* Login Input - input border */
+/* Form Error */
+/* BG for messages */
+/* Default Border Radio */
+.r_tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../img/common/r_tl.png") no-repeat;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+}
+.r_tl.lg {
+  background: url("../img/common/r_tl_l.png") no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.r_tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url("../img/common/r_tr.png") no-repeat;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+}
+.r_tr.lg {
+  background: url("../img/common/r_tr_l.png") no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.r_br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: url("../img/common/r_br.png") no-repeat;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+}
+.r_br.lg {
+  background: url("../img/common/r_br_l.png") no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.r_bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url("../img/common/r_bl.png") no-repeat;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+}
+.r_bl.lg {
+  background: url("../img/common/r_bl_l.png") no-repeat;
+  width: 12px;
+  height: 12px;
+}
+.close,
+.cancel {
+  cursor: pointer;
+}
+.warn {
+  color: #d47312;
+  background: #ffffec url("../img/common/icon_warning.png") no-repeat 12px center;
+  border: 1px solid #f7f1cb;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  padding: 8px 15px 8px 55px;
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+.btn {
+  background: #0083df;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 24px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 7px 20px;
+  cursor: pointer;
+  border: 0;
+  color: #ffffff;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  outline: none;
+}
+.btn:hover {
+  background: #0074c6;
+}
+/* 
+24px right gutter
+*/
+/* BASIC FORMATssssssssssssssssss TEST */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+div {
+  position: relative;
+}
+img {
+  -ms-interpolation-mode: bicubic;
+}
+* {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  /*font-weight: normal;*/
+}
+body {
+  color: #6b7069;
+  padding: 75px 0 100px 0;
+  margin: 0;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  overflow-x: hidden;
+  background: url('../img/common/bg_main.jpg') center center fixed no-repeat;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+p {
+  padding: 0;
+  margin: 0 0 25px 0;
+  line-height: 1.4em;
+  color: #6b7069;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #1a93d3;
+}
+a:hover {
+  text-decoration: none;
+  color: #0065ac;
+}
+a:visited {
+  color: #0083df;
+}
+/* SHELL */
+#main {
+  background: #ffffff;
+  width: 960px;
+  margin: 0 auto 0 auto;
+  border-radius: 140px 100px 130px 150px;
+  -moz-border-radius: 140px 100px 130px 150px;
+  -webkit-border-radius: 140px 100px 130px 150px;
+  z-index: 100;
+}
+#footer {
+  width: 960px;
+  margin: auto;
+  overflow: hidden;
+  display: block;
+  top:42px;
+}
+#footer p {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 11px;
+  font-weight: normal;
+  color: #42aac1;
+  width: 100%;
+  margin: 0;
+}
+#footer ul {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+}
+#footer ul li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  border-left: 1px solid;
+  list-style: none;
+  color: #42aac1;
+  margin: 0 0 0 8px;
+  padding: 3px 0 3px 8px;
+}
+#footer ul li a {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 11px;
+  font-weight: normal;
+  color: #42aac1;
+  display: block;
+}
+#footer ul li:first-child {
+  border: 0;
+  margin: 0;
+  padding-left: 0;
+}
+#headerw {
+  z-index: 1;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+#headerw #header {
+  width: 960px;
+  margin: auto;
+}
+#headerw #header ul {
+  background: #3ea8ba;
+  margin: 0 0 0 40px;
+  border-radius: 12px 12px 0 0;
+  -moz-border-radius: 12px 12px 0 0;
+  -webkit-border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  float: left;
+  padding: 5px 18px 60px 18px;
+  position: relative;
+}
+#headerw #header ul li {
+  float: left;
+  /* border-right: 1px solid #71bdcc; */
+  list-style: none;
+  margin: 0 0 0 14px;
+  padding: 7px 0 7px 14px;
+}
+#headerw #header ul li:first-child {
+  border-right: 0;
+}
+#headerw #header ul li a {
+  color: #ffffff;
+}
+#headerw #header ul li h1 {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 24px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  color: #ffffff;
+}
+#headerw #header ul li.providedby {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 12px;
+  font-weight: normal;
+  color: #fff;
+  margin: 0 0 0 14px;
+  padding: 13px 14px 5px 0;
+}
+#headerw #header ul li.nurselinephone {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  font-weight: normal;
+  color: #ffffff;
+  padding: 10px 14px 5px 0;
+}
+#headerw #header ul li.nurselinephone strong {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+}
+#headerw #header ul li.nurselinephone a {
+  border-bottom: 1px dashed;
+  margin: 0 0 0 8px;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 12px;
+  font-weight: normal;
+}
+#headerw #header ul li.logout {
+  border: 0;
+  margin: 0 0 0 14px;
+  padding: 10px 0;
+}
+#headerw #header ul li.logout a {
+  background: #71bdcc;
+  color: #ffffff;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 12px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  padding: 4px 12px;
+}
+#headerw #header ul li:first-child {
+  border: 0;
+  margin-left: 0;
+  padding: 5px 0;
+}
+#mainbot {
+  position: absolute;
+  bottom: -82px;
+  right: 150px;
+  width: 319px;
+  height: 82px;
+  background: url("../img/common/bg_main_curve.png") no-repeat left top;
+}
+a.help div {
+  display: none;
+}
+#popupwrapper {
+  top: -999999px;
+  z-index: 1000;
+}
+#popupwrapper.on {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 75px 0 0 0;
+  background: url("../img/common/bg_errorwrapper.png");
+}
+#popupwrapper.on #popupalign {
+  width: 960px;
+  margin: auto;
+}
+#popupwrapper.on #popupalign #popup {
+  background: #ffffff;
+  border-radius: 25px 25px 25px 25px;
+  -moz-border-radius: 25px 25px 25px 25px;
+  -webkit-border-radius: 25px 25px 25px 25px;
+  width: 300px;
+  padding: 36px 24px 12px 24px;
+  margin: auto;
+}
+#popupwrapper.on #popupalign #popup p {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  width: auto;
+}
+#popupwrapper.on #popupalign #popup p strong {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+}
+#popupwrapper.on #popupalign #popup h1 {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 36px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  color: #42aac1;
+}
+#popupwrapper.on #popupalign #popup .legal {
+  height: 400px;
+  overflow: auto;
+  width: auto;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  line-height: 1.2em;
+  margin: 0 0 25px 0;
+}
+#popupwrapper.on #popupalign #popup .legal strong {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+}
+#popupwrapper.on #popupalign #popup .legal h3 {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 16px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  color: #303c42;
+}
+#popupwrapper.on #popupalign #popup .legal h2 {
+  font-size: 24px !important;
+  margin: 0 0 12px 0 !important;
+  color: #78aa00 !important;
+}
+#popupwrapper.on #popupalign #popup .legal li {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+}
+#popupwrapper.on #popupalign #popup .legal p {
+  margin: 0 0 18px 0;
+  color: #303c42;
+}
+#popupwrapper.on #popupalign #popup .legal table {
+  border-collapse: collapse;
+  border-bottom: 1px solid #dddddd;
+  margin: 0 0 15px 0;
+}
+#popupwrapper.on #popupalign #popup .legal table td {
+  border-top: 1px solid #dddddd;
+  padding: 8px 15px;
+  color: #303c42;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+}
+#popupwrapper.on #popupalign #popup .legal ol {
+  margin: 0;
+  padding: 0 0 0 22px;
+}
+#popupwrapper.on #popupalign #popup .legal ol li {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+}
+#popupwrapper.on #popupalign #popup .legal ol li ul {
+  margin: 12px 0 12px 20px;
+  padding: 0;
+}
+#popupwrapper.on #popupalign #popup .legal ol li ul li {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 12px 0;
+  padding: 0;
+  list-style: disc;
+  color: #303c42;
+}
+#popupwrapper.on #popupalign #popup .legal p + ol,
+#popupwrapper.on #popupalign #popup .legal p + ul {
+  margin: 0 0 25px 25px;
+  padding: 0 0 0 25px;
+  color: #303c42;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+}
+#popupwrapper.on #popupalign #popup .legal p + ol li,
+#popupwrapper.on #popupalign #popup .legal p + ul li {
+  margin: 0 0 12px 0;
+  color: #303c42;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+}
+#popupwrapper.on #popupalign #popup .legal p + ul {
+  margin: 0 0 25px 18px;
+}
+#popupwrapper.on #popupalign #popup .legal .viewport {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  width: 96%;
+}
+#popupwrapper.on #popupalign #popup .legal .overview {
+  list-style: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#popupwrapper.on #popupalign #popup .legal .thumb .end,
+#popupwrapper.on #popupalign #popup .legal .thumb {
+  background: #cccccc;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+#popupwrapper.on #popupalign #popup .legal .scrollbar {
+  position: relative;
+  float: right;
+  width: 15px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+#popupwrapper.on #popupalign #popup .legal .track {
+  background: #eeeeee;
+  height: 100%;
+  width: 13px;
+  position: relative;
+  padding: 0 1px;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+}
+#popupwrapper.on #popupalign #popup .legal .thumb {
+  height: 20px;
+  width: 13px;
+  cursor: pointer;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
+#popupwrapper.on #popupalign #popup .legal .thumb .end {
+  overflow: hidden;
+  height: 5px;
+  width: 13px;
+}
+#popupwrapper.on #popupalign #popup .legal .disable {
+  display: none;
+}
+#popupwrapper.on #popupalign #popup h2 {
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 18px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  color: #303c42;
+  margin: 0 0 6px 0;
+}
+#popupwrapper.on #popupalign #popup p.note {
+  color: #d47312;
+  background: #ffffec url("../img/common/icon_warning.png") no-repeat 12px center;
+  border: 1px solid #f7f1cb;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+  padding: 8px 15px 8px 55px;
+  background-image: none;
+  padding-left: 15px;
+}
+#popupwrapper.on #popupalign #popup form {
+  overflow: hidden;
+  padding: 0 0 15px 0;
+}
+#popupwrapper.on #popupalign #popup form input[type=submit],
+#popupwrapper.on #popupalign #popup form p.cancel {
+  float: right;
+  background: #0e90ce url('../img/common/arrow_btn_fwd.png') no-repeat 90% center;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 16px;
+  font-weight: normal;
+  font-family: Arial;
+  font-weight: bold;
+  line-height: 1em !important;
+  padding: 8px 26px 8px 12px;
+  overflow: visible;
+  color: #ffffff;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  outline: none;
+  border: 0;
+  margin: 0 0 0 12px;
+}
+#popupwrapper.on #popupalign #popup form input[type=submit].cancel,
+#popupwrapper.on #popupalign #popup form p.cancel.cancel {
+  background: #bababa;
+  padding: 8px 12px;
+}
+#popupwrapper.on #popupalign #popup #popuptail {
+  background: url("../img/common/popup_tail.png") no-repeat left top;
+  width: 91px;
+  height: 37px;
+  position: absolute;
+  bottom: -36px;
+  left: 0;
+  display: none;
+}
+#popupwrapper.on #popupalign #popup a.close {
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  background: url("../img/common/icon_close.png") no-repeat right;
+  padding: 6px 32px 7px 0;
+  color: #616161;
+  font-family: 'Microsoft YaHei', '΢���ź�';
+  font-size: 14px;
+}

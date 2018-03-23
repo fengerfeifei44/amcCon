@@ -1,0 +1,289 @@
+$(document).ready(function() {
+    $("body.viewcarepoints #branding").append('<div class="d"></div>');
+    $("body").append('<div id="popupwrapper"><div id="popupalign"><div id="popup"></div></div></div>');
+    if ($('#nurseline').length > 0) {
+        $('#nurseline').append('<div class="photo"></div>');
+    }
+
+    $('.conclusion a#nurseline.closed').click(function() {
+        cache: false;
+        if ($(this).hasClass('closed')) {
+            $(this).removeClass('closed').addClass('open');
+            //$(this).html('<strong>Need help from a nurse?</strong><ul><li>Call <strong>1-888-888-8888</strong></li><li>Give the nurse this session ID: <strong>XXXX</strong></li></ul><div class="photo"></div>');
+            //$(this).load('some.cshtml', {variable: variable}, function() {
+            //	do something when done;
+            $(this).load('/Algo/ConclusionCreateWarmTransfer/' + Math.random(), function(data) {
+                cache: false;
+                $(this).html(data);
+            });
+        }
+
+    });
+
+    var speed = 250;
+
+    $('body.viewcarepoints #sidebar').append('<ul>');
+    $('body.viewcarepoints .module').hide();
+    $('body.viewcarepoints .care:first').addClass('on').fadeIn();
+
+    $('body.viewcarepoints .care').each(function() {
+        var linkName = $(this).children('h1').text();
+        $('#sidebar ul').append('<li><a>' + linkName + '</a></li>');
+        var nextModule = $(this).next('.care').children('h1').text();
+        $(this).append('<div class="next"><p>Next section</p><a>' + nextModule + '</a></div>');
+    });
+
+    $('#sidebar').before('<div class="viewtoggle"><ul></ul></div>');
+
+    if ($('body.viewcarepoints .symptom').size() > 0) {
+        $('.viewtoggle ul').append('<li>Symptom Assessment</li>');
+    }
+
+    if ($('body.viewcarepoints .care').size() > 0) {
+        $('.viewtoggle ul').append('<li>Medical Information</li>');
+    }
+
+    $('.viewtoggle ul li:first').addClass('on');
+    $('#sidebar ul').hide();
+    $('.care').hide();
+    $('.symptom').fadeIn(speed);
+    $('.viewtoggle ul li').append('<div class="sprite"></div>');
+
+    $('.viewtoggle ul li').click(function() {
+        if ($(this).text() == "Symptom Assessment" && $(this).hasClass('on') == false) {
+            $('.viewtoggle li.on').toggleClass('on');
+            $(this).toggleClass('on');
+            $('#sidebar ul').hide();
+            $('#sidebar a').removeClass('on');
+            $('#summary .care').fadeOut(speed);
+            $('#summary .symptom').delay(speed).fadeIn(speed);
+        } else if ($(this).text() == "Medical Information" && $(this).hasClass('on') == false) {
+            $('.viewtoggle li.on').toggleClass('on');
+            $(this).toggleClass('on');
+            $('#sidebar ul').show();
+            $('#sidebar ul li:first a').addClass('on');
+            $('#summary .symptom').fadeOut(speed);
+            $('#summary .care:first').delay(speed).fadeIn(speed);
+        }
+    });
+
+    if ($('body.viewcarepoints .symptom').size() == 0) {
+        $('.care:first').show();
+        $('#sidebar ul').show();
+    }
+
+
+    $('body.viewcarepoints #sidebar ul li:first a').addClass('on');
+
+    $('body.viewcarepoints .care:last .next').remove();
+
+    $('body.viewcarepoints #sidebar ul li a').click(function() {
+        var module = $(this).text();
+        $('body.viewcarepoints #sidebar ul li a.on').toggleClass('on');
+        $(this).toggleClass('on');
+        $('body.viewcarepoints .care.on').fadeOut(speed);
+        $('body.viewcarepoints #summary').find('h1:contains("' + module + '")').parent('.care').addClass('on').delay(speed).fadeIn(speed);
+    });
+
+    $('body.viewcarepoints .care .next a').click(function() {
+        var module = $(this).text();
+        $(this).addClass('on');
+        $('body.viewcarepoints #sidebar ul li a.on').toggleClass('on');
+        $('body.viewcarepoints #sidebar ul li a:contains("' + module + '")').toggleClass('on');
+        $('body.viewcarepoints .care.on').fadeOut(speed);
+        $('body.viewcarepoints #summary').find('h1:contains("' + module + '")').parent('.care').addClass('on').delay(speed).fadeIn(speed);
+    });
+
+
+    $.extend($.expr[':'], {
+        'containsi': function(elem, i, match, array) {
+            return (elem.textContent || elem.innerText || '').toLowerCase()
+                .indexOf((match[3] || "").toLowerCase()) >= 0;
+        }
+    });
+
+    $('.search input').keyup(function() {
+
+        if ($(this).val().length > 0) {
+            $("ul").addClass('on');
+            $("a.clear").fadeIn();
+
+            $(".search ul li").removeClass('on').removeClass('first').filter(':containsi("' + $(this).val() + '")').addClass('on');
+            $(".search ul li.on:first").addClass('first');
+            if ($(".search ul li.on").size() == 0) {
+                var errortext = $(".search .errortext").text();
+                $('.search ul').append('<li class="on first error">' + errortext + '</li>')
+            }
+
+        } else {
+            $("ul").removeClass('on');
+            $("ul li.error").remove();
+            $(".search ul li").removeClass('on');
+            $("a.clear").fadeOut();
+        }
+    });
+
+    $('.search a.clear').click(function() {
+        $("ul").removeClass('on');
+        $("ul li.error").remove();
+        $(".search ul li").removeClass('on');
+        $("a.clear").fadeOut();
+        $(".search input").val('');
+    });
+
+    $('#conclusion .item:not(.uta)').each(function() {
+        if ($(this).children('p').length > 1) {
+            $(this).find('p:first').append(' <a>Read more...</a>');
+            $(this).find('p:last').append(' <a>Collapse</a>');
+        }
+        $(this).find('p:first a').click(function() {
+            $(this).closest('.item').children('p').slideDown();
+            $(this).hide();
+        });
+        $(this).find('p a:last').click(function() {
+            $(this).closest('.item').children('p:gt(0)').slideUp();
+            $(this).closest('.item').children('p:eq(0)').children('a').fadeIn();
+            //$(this).hide();
+        });
+    });
+
+    $("a.help").click(function() {
+        var p = $(this).position();
+        var helpText = $(this).children("div").html();
+        $("#popup").html(helpText);
+        $("#popupwrapper").addClass("on");
+        //$("#popup").css('left', p.left + 20);
+        var popHeight = $("#popup").height();
+        $("#popup").css('top', '-25px');
+        $("#popup").append('<div id="popuptail"></div>');
+        $("#popup").append('<a class="close">close</a>');
+
+        $("#popup .close").click(function() {
+            $("#popupwrapper").removeClass("on");
+        });
+        $('.cancel').click(function() {
+            $("#popupwrapper").removeClass("on");
+        });
+    });
+
+    $("a.f-help").click(function() {
+        var p = $(this).position();
+        var helpText = $(this).children("div").html();
+        $("#popup").html(helpText);
+        $("#popupwrapper").addClass("on");
+        //$("#popup").css('left', p.left + 20);
+        var popHeight = $("#popup").height();
+        $("#popup").css('top', '-25px');
+        $("#popup").css('width', '800px');
+        $("#popup").css('height', '500px');
+        $("#popup").css('overflow', 'auto');
+        $("#popup").append('<div id="popuptail"></div>');
+        $("#popup").append('<a class="close">close</a>');
+
+        $("#popup .close").click(function() {
+            $("#popupwrapper").removeClass("on");
+        });
+        $('.cancel').click(function() {
+            $("#popupwrapper").removeClass("on");
+        });
+    });
+    //$("#popupwrapper").click(function () {
+    //    $(this).removeClass("on");
+    //});
+
+    //these probably aren't necessary
+    $("#popup .close").click(function() {
+        $("#popupwrapper").removeClass("on");
+    });
+
+    $('.cancel').click(function() {
+        $("#popupwrapper").removeClass("on");
+    });
+
+    var prevSelRadio = "";
+
+    $('form.triage input:checked').next('label').addClass('on');
+
+    $('form.triage input[type=radio]').click(function() {
+        $('input[name=' + $(this).attr('name') + ']').next('label').removeClass('on');
+        $(this).next('label').addClass('on');
+        $(this).closest('.q').data('complete', 1);
+    });
+
+    $('form.triage input[type=text]').change(function() {
+        if ($(this).val().length > 0) {
+            $(this).closest('.q').data('complete', 1);
+        } else {
+            $(this).closest('.q').data('complete', 0);
+        }
+    });
+
+    $('form.triage input[type=checkbox]').click(function() {
+        if ($(this).next('label').hasClass('on')) {
+            $(this).next('label').removeClass('on');
+        } else {
+            $(this).next('label').addClass('on');
+        }
+
+        $(this).closest('ul').find('input[value=0]').removeAttr("checked");
+        $(this).closest('ul').find('input[value=0]').next('label').removeClass('on');
+
+        if ($(this).attr('value') == '0') {
+            $(this).closest('ul').find('label').removeClass('on');
+            $(this).closest('ul').find('input').removeAttr("checked");
+            $(this).next('label').addClass('on');
+            $(this).attr('checked', 'checked');
+        }
+
+        if ($(this).closest('.q input:checked').length > 0) {
+            $(this).closest('.q').data('complete', 1);
+        } else {
+            $(this).closest('.q').data('complete', 0);
+        }
+    });
+
+    /*	function isChecked() {
+		var inComplete=1;
+		$(".q").each(function(){
+			if ($(this).data('complete')=="0") {
+				inComplete=0;
+			}
+			return inComplete;
+		});
+		
+		if (inComplete==1) {
+			$('input[type=submit]').removeClass();
+		} else {
+			$('input[type=submit]').addClass('disabled');
+		}
+	}
+
+
+function isChecked() {
+		if ($('form.triage input:checked').length > 0) {
+			$('input[type=submit]').removeClass('disabled');
+		} else {
+			$('input[type=submit]').addClass('disabled');
+		}
+	}
+*/
+
+    if ($('.symptomselect').length > 0) {
+        $('.symptomselect li:first').addClass('on');
+        $('.symptomselect li:first').append('<div class="sprite"></div>');
+    }
+
+
+    $('.symptomselect ul:first li').click(function() {
+        var showTab = $(this).data('tab');
+        $('.content ul').hide();
+        $('ul[data-tab="' + showTab + '"]').show();
+        $('.symptomselect li').removeClass('on');
+        $(this).addClass('on');
+        $(this).append('<div class="sprite"></div>');
+    });
+
+    if ($('#nurseline').length > 0) {
+        $('#nurseline').append('<div class="photo"></div>');
+    }
+});
